@@ -122,7 +122,7 @@ This project was developed as part of graduate coursework (CSC 590) at Californi
 
 **Medha Maisa**  
 MS Computer Science Student | California State University Dominguez Hills  
-[LinkedIn](https://linkedin.com/in/maisa-medha-4959651a3) | [Email](mailto:your-email@domain.com)
+[LinkedIn](https://linkedin.com/in/medha-maisa) | [Email](mailto:medhamaisa404@gmail.com)
 
 ## 🤝 Contributing
 
