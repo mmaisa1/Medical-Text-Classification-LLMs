@@ -1,0 +1,74 @@
+You're making excellent progress, Medha! Here's a clear breakdown of **what you’ve done so far** and **how it aligns with the expected project outcomes**:
+
+---
+
+### ✅ **Expected Outcome 1: Baseline Model (TF-IDF → ML models)**
+
+**You’ve completed this!** Here's what you've done:
+
+- ✅ **Preprocessing**: Cleaned and deduplicated the text data.
+- ✅ **Labeling**: Created both **binary** and **multiclass** labels based on keyword matching.
+- ✅ **Vectorization**: Used **TF-IDF** to convert text to numerical features.
+- ✅ **Class Imbalance Handling**: Applied **SMOTE** for oversampling.
+- ✅ **Modeling (Baseline)**:
+  - Trained a **Logistic Regression** model with hyperparameter tuning via **GridSearchCV**.
+  - Evaluated using **accuracy score** and **classification report**.
+  - Cross-validated with **StratifiedKFold**.
+- ✅ **Second Model**: Trained and tuned a **Random Forest** model using **RandomizedSearchCV**.
+
+📌 **Status**: ✅ **Baseline model completed**  
+📌 **You also experimented with different classifiers and techniques (great initiative!).**
+
+---
+
+### 🟡 **Expected Outcome 2: LLM-based Model Comparison**
+
+**Not started yet — this is the next big milestone.**
+
+You are expected to:
+
+- Load or fine-tune an LLM (e.g., **BERT**, **BioBERT**, **DistilBERT**) for classification.
+- Use either:
+  - [ ] **HuggingFace Transformers**
+  - [ ] Your own custom training (if dataset size is small/moderate)
+- Compare performance (accuracy, F1) with the **TF-IDF + ML baseline**.
+
+📌 **Status**: 🔜 **Next step to start**
+
+---
+
+### 🔲 **Expected Outcome 3: Few-shot Learning Using LLMs**
+
+You haven't done this part yet either, and it comes **after** you work with a general LLM-based model.
+
+Few-shot learning might include:
+
+- Using LLM APIs (like OpenAI's GPT-4 or Mistral models via HuggingFace) with **prompting** techniques.
+- Feeding in a few labeled examples in the prompt and asking the LLM to classify new samples.
+
+📌 **Status**: ⏳ **Pending**, will follow after full LLM model.
+
+---
+
+### ✅ Summary of Your Progress
+
+| Task                                                          | Status     |
+|---------------------------------------------------------------|------------|
+| Data Cleaning and Preprocessing                               | ✅ Done     |
+| Labeling (Binary & Multiclass)                                | ✅ Done     |
+| Baseline Model (TF-IDF + Logistic Regression & Random Forest) | ✅ Done     |
+| Class Imbalance Handling (SMOTE)                              | ✅ Done     |
+| Hyperparameter Tuning                                         | ✅ Done     |
+| LLM Model for Classification                                  | 🔜 Not started |
+| Few-shot Learning with LLMs                                   | 🔲 Not started |
+
+---
+
+### 🔧 Suggested Next Steps
+
+1. **Decide on an LLM**: Start with **DistilBERT** or **BERT** via HuggingFace.
+2. **Train or fine-tune it** on your binary label data.
+3. **Evaluate performance** and compare it with your current best baseline model.
+4. Once done, experiment with **few-shot classification** using prompts.
+
+Would you like help setting up your first LLM-based model (e.g., using HuggingFace)?
