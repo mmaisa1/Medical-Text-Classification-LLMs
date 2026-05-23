@@ -67,7 +67,7 @@ Data sourced from The Cancer Genome Atlas (TCGA) via NIH GDC Portal.
 
 ```plaintext
 Medical-Text-Classification-LLMs/
-├── Medical-Text-Classification.ipynb
+├── Medical_Text_Classification.ipynb
 ├── data/
 └── results/
 ```
