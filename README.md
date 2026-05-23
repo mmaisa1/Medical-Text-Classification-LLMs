@@ -1,31 +1,73 @@
-# Cancer Type Prediction from Pathology Reports
+# Medical Text Classification Using LLMs (TCGA Pathology Reports)
 
-**This repository contains a clean pipeline for predicting 32 specific cancer types (BRCA, KIRC, LUAD, etc.) from TCGA pathology reports.**
+A systematic evaluation of classical ML, supervised transformer, zero-shot, 
+and few-shot approaches for 32-class cancer type classification from TCGA 
+pathology reports.
 
-## 🎯 Aim
-Determine if pathology report text contains discriminative patterns to identify specific cancer types with high accuracy.
+## Overview
 
-## 🛤️ Plan of Action
-1. **Classical ML Baseline**: TF-IDF → Logistic Regression/Random Forest
-2. **LLM Evaluation**: Zero-shot, few-shot, fine-tuned biomedical LLMs
-3. **Comparison**: Establish performance hierarchy
+This project evaluates multiple model families on a long-document clinical 
+text classification task, with a focus on feasibility-aware evaluation and 
+leakage-safe experimental design.
 
-## 📊 Current Results
-- **Logistic Regression**: 94.2% accuracy (32 classes)
-- **5-Fold CV**: 93.1% ± 0.6%
-- **Random Forest**: 93.2% (comparison baseline)
+## Results
 
-## 📈 Expected Outcomes
-1. ✅ **94%+ ML baseline** (ACHIEVED)
-2. **LLM superiority** (96-98% expected)
-3. **Few-shot efficiency** demonstration
+### Full Test Set (N=1,905)
+| Model | Accuracy | Macro-F1 | Weighted-F1 | Per Report (sec) |
+|---|---|---|---|---|
+| TF-IDF + LinearSVC | 96.6% | 95.0% | 96.5% | ~0.0003 |
+| TF-IDF + LogReg | 95.4% | 94.0% | 95.4% | ~0.0007 |
+| DistilBERT (fine-tuned) | 92.3% | 89.6% | 92.4% | ~0.4 |
 
-## 🗂️ Files
+### Subset Evaluation (N=300)
+| Model | Accuracy | Macro-F1 | Weighted-F1 | Per Report (sec) |
+|---|---|---|---|---|
+| TF-IDF + LinearSVC | 95.3% | 93.6% | 95.0% | ~0.0003 |
+| TF-IDF + LogReg | 95.0% | 94.2% | 95.1% | ~0.0007 |
+| DistilBERT (fine-tuned) | 90.3% | 87.7% | 90.2% | ~0.4 |
+| Hybrid Top-K + Chunked NLI | 81.7% | 77.0% | 81.0% | 2.38 |
+| Full-Label Chunked NLI | 75.3% | 70.9% | 75.2% | 15.27 |
+| Zero-Shot BART-MNLI (naive) | 67.7% | 61.0% | 68.1% | 5.49 |
+| Few-Shot FLAN-T5 (3-shot) | 46.3% | 37.0% | 45.4% | 0.108 |
+
+## Key Contributions
+
+- Leakage-safe patient-disjoint train/test splitting with group-aware CV
+- Hybrid Top-K candidate narrowing + chunked NLI reranking framework
+- Feasibility analysis of LLM-based methods on long clinical documents
+- Ablation study isolating Top-K narrowing contribution (+6.3% accuracy, 6.4x faster vs full-label chunked)
+- Performance-efficiency tradeoff analysis across model families
+
+## Setup
+
+**Runtime:** Google Colab, Python 3.12, T4 GPU
+
+**Install dependencies:**
+```bash
+pip install transformers datasets evaluate accelerate sentencepiece scikit-learn
 ```
-data/
-├── TCGAReports.csv              # 9,523 pathology reports
-└── tcga_patient_to_cancer_type.csv  # 32 cancer labels
 
-TCGA_cancer_classification.ipynb  # Complete 94.2% pipeline
-project_documenation.doc          # Research journey
+## How to Run
+
+1. Upload data files to Google Drive under a folder named 
+   `Medical-Text-Classification-LLMs`
+2. Open the notebook in Google Colab
+3. Mount Drive and run all sections in order
+
+## Data
+
+| File | Description |
+|---|---|
+| TCGA_Reports.csv | 9,523 pathology reports |
+| tcga_patient_to_cancer_type.csv | 32 cancer type labels |
+
+Data sourced from The Cancer Genome Atlas (TCGA) via NIH GDC Portal.
+
+## Files
+
+```plaintext
+Medical-Text-Classification-LLMs/
+├── Medical-Text-Classification.ipynb
+├── data/
+└── results/
 ```
