@@ -58,7 +58,7 @@ pip install transformers datasets evaluate accelerate sentencepiece scikit-learn
 
 | File | Description |
 |---|---|
-| TCGA_Reports.csv | 9,523 pathology reports |
+| TCGA_Reports.csv | 9,523 pathology reports - download from NIH GDC Portal |
 | tcga_patient_to_cancer_type.csv | 32 cancer type labels |
 
 Data sourced from The Cancer Genome Atlas (TCGA) via NIH GDC Portal.
@@ -67,7 +67,8 @@ Data sourced from The Cancer Genome Atlas (TCGA) via NIH GDC Portal.
 
 ```plaintext
 Medical-Text-Classification-LLMs/
-├── Medical_Text_Classification.ipynb
+├── Medical_Text_Classification_LLMs.ipynb
 ├── data/
+|  └── tcga_patient_to_cancer_type.csv
 └── results/
 ```
