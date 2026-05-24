@@ -1,0 +1,13 @@
+{
+  "full_test": {
+    "acc": 0.9233595800524934,
+    "macro_f1": 0.8954965382102495,
+    "weighted_f1": 0.9239211091471201
+  },
+  "subset": {
+    "acc": 0.9033333333333333,
+    "macro_f1": 0.8770591518090255,
+    "weighted_f1": 0.9020511269836555
+  },
+  "notes": "DistilBERT uses focused text; timing is available in Trainer logs."
+}
